@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
 export const MusicPostTemplate = ({
   content,
   contentComponent,
-  description,
   title,
+  description,
+  image,
   helmet,
 }) => {
 
@@ -25,7 +27,7 @@ export const MusicPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>{description}</p>
+            <Img fluid={image.childImageSharp.fluid} alt={description} />
             <PostContent content={content} />
           </div>
         </div>
@@ -39,6 +41,7 @@ MusicPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   helmet: PropTypes.object,
 }
 
@@ -51,6 +54,7 @@ const MusicPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        image={post.frontmatter.image}
         helmet={
           <Helmet titleTemplate="Music | %s">
             <title>{`${post.frontmatter.title}`}</title>
@@ -74,7 +78,7 @@ MusicPost.propTypes = {
 
 export default MusicPost
 
-export const pageQuery = graphql`
+export const musicPageQuery = graphql`
   query MusicPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
@@ -83,6 +87,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
