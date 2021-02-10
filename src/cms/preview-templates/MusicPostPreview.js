@@ -1,24 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { BlogPostTemplate } from '../../templates/blog-post'
+import { MusicPostTemplate } from '../../templates/music-post'
 
-const BlogPostPreview = ({ entry, widgetFor }) => {
-  const tags = entry.getIn(['data', 'tags'])
+const MusicPostPreview = ({ entry, widgetFor }) => {
   return (
-    <BlogPostTemplate
-      content={widgetFor('body')}
-      description={entry.getIn(['data', 'description'])}
-      tags={tags && tags.toJS()}
+    <MusicPostTemplate
+      content={widgetFor('description')}
+      description={entry.getIn(['data', 'short'])}
       title={entry.getIn(['data', 'title'])}
     />
   )
 }
 
-BlogPostPreview.propTypes = {
+MusicPostPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 }
 
-export default BlogPostPreview
+export default MusicPostPreview

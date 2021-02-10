@@ -6,25 +6,23 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 class MusicRoll extends React.Component {
   render() {
     const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { edges: musics } = data.allMarkdownRemark
 
     return (
       <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+        {musics &&
+          musics.map(({ node: music }) => (
+            <div className="is-parent column is-6" key={music.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
+                className={`blog-list-item tile is-child box notification`}
               >
                 <header>
-                  {post.frontmatter.featuredimage ? (
+                  {music.frontmatter.image ? (
                     <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          image: music.frontmatter.image,
+                          alt: `image for music ${music.frontmatter.title}`,
                         }}
                       />
                     </div>
@@ -32,21 +30,21 @@ class MusicRoll extends React.Component {
                   <p className="post-meta">
                     <Link
                       className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
+                      to={music.fields.slug}
                     >
-                      {post.frontmatter.title}
+                      {music.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
+                    <span> {music.frontmatter.short} </span>
                     <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
+                      {music.frontmatter.date}
                     </span>
                   </p>
                 </header>
                 <p>
-                  {post.excerpt}
+                  {music.excerpt}
                   <br />
                   <br />
-                  <Link className="button" to={post.fields.slug}>
+                  <Link className="button" to={music.fields.slug}>
                     Keep Reading →
                   </Link>
                 </p>
