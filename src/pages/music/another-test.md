@@ -3,8 +3,8 @@ templateKey: music-post
 title: another test
 image: /img/ragin-.jpg
 date: 2021-02-10T01:12:00.349Z
-short: another test
-description: |-
+description: another test
+body: |-
   but really *another test*
 
 

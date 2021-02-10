@@ -34,7 +34,7 @@ class MusicRoll extends React.Component {
                     >
                       {music.frontmatter.title}
                     </Link>
-                    <span> {music.frontmatter.short} </span>
+                    <span> {music.frontmatter.description} </span>
                     <span className="subtitle is-size-5 is-block">
                       {music.frontmatter.date}
                     </span>

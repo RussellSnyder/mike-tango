@@ -13,6 +13,7 @@ export const MusicPostTemplate = ({
   title,
   helmet,
 }) => {
+
   const PostContent = contentComponent || Content
 
   return (
@@ -51,7 +52,7 @@ const MusicPost = ({ data }) => {
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | Music">
+          <Helmet titleTemplate="Music | %s">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
