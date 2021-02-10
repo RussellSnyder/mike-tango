@@ -5,8 +5,8 @@ import { MusicPostTemplate } from '../../templates/music-post'
 const MusicPostPreview = ({ entry, widgetFor }) => {
   return (
     <MusicPostTemplate
-      content={widgetFor('description')}
-      description={entry.getIn(['data', 'short'])}
+      content={widgetFor('body')}
+      description={entry.getIn(['data', 'description'])}
       title={entry.getIn(['data', 'title'])}
     />
   )
