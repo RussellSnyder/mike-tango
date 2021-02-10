@@ -12,6 +12,21 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "music"
+    label: "Music"
+    folder: "src/pages/music"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "music-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Short", name: "short", widget: "text"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Song File", name: "file", widget: "file"}
+      - {label: "Youtube Link", name: "youtube", widget: "string"}
+
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"

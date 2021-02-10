@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
-  "version": "1.1.3",
-  "author": "Austin Green",
+  "name": "mike-tango",
+  "description": "Website for German Musician",
+  "version": "0.1.0",
+  "author": "Russell Snyder",
   "dependencies": {
     "bulma": "^0.9.0",
     "gatsby": "^2.20.35",
