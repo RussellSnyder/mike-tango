@@ -12,7 +12,6 @@ export const MusicPostTemplate = ({
   contentComponent,
   title,
   description,
-  image,
   helmet,
 }) => {
 
@@ -27,7 +26,6 @@ export const MusicPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <Img fluid={image.childImageSharp.fluid} alt={description} />
             <PostContent content={content} />
           </div>
         </div>
