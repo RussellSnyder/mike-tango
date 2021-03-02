@@ -82,16 +82,13 @@ export const musicPageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
-        description
-        image {
-          childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+        date(formatString: "MMMM DD, YYYY")
+        recording {
+          absolutePath
+          atimeMs
         }
+        youtube
       }
     }
   }
