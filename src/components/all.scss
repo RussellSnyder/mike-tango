@@ -91,7 +91,7 @@ $white: #ffffff;
   height: 1.5rem;
   fill: currentColor;
 }
-.navbar-brand .navbar-item[title=Logo] {
+.navbar-brand .navbar-item[title="Logo"] {
   padding: 0;
   img {
     max-height: 4rem;
@@ -147,17 +147,13 @@ $menu-label-color: $white;
     // margin-top: 10px;
   }
 }
-// blog roll
-.blog-list-item.is-featured {
-  background-color: #d6400033;
-}
-.blog-list-item header {
-  display: flex;
-  margin-bottom: 1em;
-}
-.blog-list-item .featured-thumbnail {
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
+// music roll
+.music-list-item {
+  header {
+    display: flex;
+    margin-bottom: 1em;
+  }
+
 }
 
 @import "~bulma";

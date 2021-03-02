@@ -1,46 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 class MusicRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: musics } = data.allMarkdownRemark
 
+    console.log({musics})
     return (
       <div className="columns is-multiline">
         {musics &&
           musics.map(({ node: music }) => (
-            <div className="is-parent column is-6" key={music.id}>
+            <div className="is-parent column is-12" key={music.id}>
               <article
                 className={`music-list-item tile is-child box notification`}
               >
-                <header>
-                  {music.frontmatter.image ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: music.frontmatter.image,
-                          alt: `image for music ${music.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={music.fields.slug}
-                    >
-                      {music.frontmatter.title}
-                    </Link>
-                    <span> {music.frontmatter.description} </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {music.frontmatter.date}
-                    </span>
-                  </p>
+                <header className="is-justify-content-space-between is-flex-direction-row">
+                  <h4 className="post-meta">
+                    {music.frontmatter.title}
+                  </h4>
+                  <span className="date">
+                    {music.frontmatter.date}
+                  </span>
                 </header>
+                <AudioPlayer
+                  src={music.frontmatter.recording}
+                  onPlay={e => console.log("onPlay")}
+                  // other props here
+                />
                 <p>
+                  {/* {music.recording} */}
                   {music.excerpt}
                   <br />
                   <br />

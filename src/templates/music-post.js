@@ -84,10 +84,7 @@ export const musicPageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        recording {
-          absolutePath
-          atimeMs
-        }
+        recording
         youtube
       }
     }
