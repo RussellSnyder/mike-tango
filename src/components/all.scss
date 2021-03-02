@@ -151,9 +151,10 @@ $menu-label-color: $white;
 .music-list-item {
   header {
     display: flex;
-    margin-bottom: 1em;
   }
-
+  .excerpt {
+    margin-top: 0.5rem;
+  }
 }
 
 @import "~bulma";

@@ -16,7 +16,7 @@ const Footer = class extends React.Component {
             style={{ width: '50em', height: '5em' }}
           />
         </div>
-        <div className="content has-text-centered">
+        <div className="content has-text-centered" style={{ paddingBottom: '1.5em' }}>
           <div className="column is-12 social">
             <a title="facebook" href="https://facebook.com">
               <img
@@ -32,19 +32,6 @@ const Footer = class extends React.Component {
                 style={{ width: '1.2em', height: '1.2em' }}
               />
             </a>
-          </div>
-          <div className="column is-12 by-russell">
-            Russell made this website
-            <a
-              href="https://github.com/RussellSnyder/mike-tango"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img style={{ width: '1.2em' }} src={github} alt="Github" />
-              </span>
-            </a>
-
           </div>
         </div>
       </footer>

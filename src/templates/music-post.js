@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
+import AudioPlayer from 'react-h5-audio-player';
 import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
@@ -11,7 +10,8 @@ export const MusicPostTemplate = ({
   content,
   contentComponent,
   title,
-  description,
+  date,
+  recording,
   helmet,
 }) => {
 
@@ -23,9 +23,17 @@ export const MusicPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
+            <div style={{ display: 'flex', alignItems: 'center' }}
+              className="is-justify-content-space-between">
+              <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                {title}
+              </h1>
+              <h4 className="date" style={{ textAlign: 'right' }}>
+                {date}
+              </h4>
+            </div>
+            <AudioPlayer src={`${recording}`}/>
+            <br />
             <PostContent content={content} />
           </div>
         </div>
@@ -52,14 +60,17 @@ const MusicPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        date={post.frontmatter.date}
+        recording={post.frontmatter.recording.publicURL}
         image={post.frontmatter.image}
         helmet={
           <Helmet titleTemplate="Music | %s">
             <title>{`${post.frontmatter.title}`}</title>
-            <meta
+            {/* TODO SEO */}
+            {/* <meta
               name="description"
               content={`${post.frontmatter.description}`}
-            />
+            /> */}
           </Helmet>
         }
         title={post.frontmatter.title}
@@ -84,7 +95,9 @@ export const musicPageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        recording
+        recording {
+          publicURL
+        }
         youtube
       }
     }

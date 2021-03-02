@@ -9,7 +9,6 @@ class MusicRoll extends React.Component {
     const { data } = this.props
     const { edges: musics } = data.allMarkdownRemark
 
-    console.log({musics})
     return (
       <div className="columns is-multiline">
         {musics &&
@@ -26,18 +25,13 @@ class MusicRoll extends React.Component {
                     {music.frontmatter.date}
                   </span>
                 </header>
-                <AudioPlayer
-                  src={music.frontmatter.recording}
-                  onPlay={e => console.log("onPlay")}
-                  // other props here
-                />
-                <p>
+                <AudioPlayer src={`${music.frontmatter.recording.publicURL}`}/>
+                <br />
+                <p className="excerpt">
                   {/* {music.recording} */}
-                  {music.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={music.fields.slug}>
-                    Keep Reading →
+                  {music.excerpt}...&nbsp;
+                  <Link to={music.fields.slug}>
+                    read more
                   </Link>
                 </p>
               </article>
@@ -66,7 +60,7 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
+              excerpt(pruneLength: 120)
               id
               fields {
                 slug
@@ -75,8 +69,9 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
-                recording
-                youtube
+                recording {
+                  publicURL
+                }
               }
             }
           }

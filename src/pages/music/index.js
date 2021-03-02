@@ -22,7 +22,7 @@ export default class MusicIndexPage extends React.Component {
               padding: '1rem',
             }}
           >
-            Latest Music
+            Music
           </h1>
         </div>
         <section className="section">

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
 import MusicRoll from '../components/MusicRoll'
 
 export const IndexPageTemplate = ({
@@ -92,7 +91,7 @@ export const IndexPageTemplate = ({
                   <MusicRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/music">
-                      Read more
+                      More Music!
                     </Link>
                   </div>
                 </div>
