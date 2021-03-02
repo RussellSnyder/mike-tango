@@ -22,8 +22,8 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Song File", name: "file", widget: "file"}
-      - {label: "Youtube Link", name: "youtube", widget: "string"}
+      - {label: "Recording", name: "recording", widget: "file"}
+      - {label: "Optoinal Youtube Link", name: "youtube", widget: "string"}
   - name: "event"
     label: "Events"
     folder: "src/pages/event"
@@ -32,12 +32,12 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "music-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Time", name: "time", widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Date and Time", name: "date", widget: "datetime"}
+      - {label: "Venue", name: "venue", widget: "string"}
+      - {label: "Location", name: "location", widget: "map"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Song File", name: "file", widget: "file"}
-      - {label: "Youtube Link", name: "youtube", widget: "string"}
+      - {label: "Optional Recording", name: "recording", widget: "file"}
+      - {label: "Optional Youtube Link", name: "youtube", widget: "string"}
   - name: "pages"
     label: "Pages"
     files:
