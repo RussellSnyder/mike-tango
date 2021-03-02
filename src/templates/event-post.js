@@ -76,17 +76,17 @@ EventPost.propTypes = {
 
 export default EventPost
 
-export const eventPageQuery = graphql`
-  query EventPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        time
-        location
-      }
-    }
-  }
-`
+// export const eventPageQuery = graphql`
+//   query EventPostByID($id: String!) {
+//     markdownRemark(id: { eq: $id }) {
+//       id
+//       html
+//       frontmatter {
+//         title
+//         date(formatString: "MMMM DD, YYYY")
+//         time
+//         location
+//       }
+//     }
+//   }
+// `
