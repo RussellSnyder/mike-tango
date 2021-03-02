@@ -14,7 +14,7 @@ class MusicRoll extends React.Component {
           musics.map(({ node: music }) => (
             <div className="is-parent column is-6" key={music.id}>
               <article
-                className={`blog-list-item tile is-child box notification`}
+                className={`music-list-item tile is-child box notification`}
               >
                 <header>
                   {music.frontmatter.image ? (
