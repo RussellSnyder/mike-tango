@@ -1,11 +1,12 @@
 ---
 templateKey: music-post
 title: another test
-image: /img/ragin-.jpg
 date: 2021-02-10T01:12:00.349Z
-description: another test
-file: /img/01-bb-minor.mp3
+recording: /img/01-bb-minor.mp3
 youtube: https://www.youtube.com/watch?v=EpYHp-W51H4
+image: /img/ragin-.jpg
+file: /img/01-bb-minor.mp3
+description: another test
 ---
 but really *another test*
 
