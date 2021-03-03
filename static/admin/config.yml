@@ -30,14 +30,13 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "music-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date and Time", name: "date", widget: "datetime"}
       - {label: "Venue", name: "venue", widget: "string"}
-      - {label: "Location", name: "location", widget: "map"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Optional Recording", name: "recording", widget: "file"}
-      - {label: "Optional Youtube Link", name: "youtube", widget: "string"}
+      - {label: "Optional Recording", name: "recording", widget: "file", required: false}
+      - {label: "Optional Youtube Link", name: "youtube", widget: "string", required: false}
   - name: "pages"
     label: "Pages"
     files:

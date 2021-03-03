@@ -1,9 +1,11 @@
+const siteMetadata = {
+  title: 'Max Terzakis Music',
+  description:
+    'Digital Home of German Artist Max Terzakis',
+};
+
 module.exports = {
-  siteMetadata: {
-    title: 'Max Terzakis Music',
-    description:
-      'Digital Home of German Artist Max Terzakis',
-  },
+  siteMetadata,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',

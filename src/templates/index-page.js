@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import MusicRoll from '../components/MusicRoll'
+import EventRoll from '../components/EventRoll'
 
 export const IndexPageTemplate = ({
   image,
@@ -82,6 +83,17 @@ export const IndexPageTemplate = ({
                       {heading}
                     </h3>
                     <p>{description}</p>
+                  </div>
+                </div>
+                <div className="column is-12">
+                  <h3 className="has-text-weight-semibold is-size-2">
+                    Upcoming Events
+                  </h3>
+                  <EventRoll />
+                  <div className="column is-12 has-text-centered">
+                    <Link className="btn" to="/events">
+                      All Events
+                    </Link>
                   </div>
                 </div>
                 <div className="column is-12">

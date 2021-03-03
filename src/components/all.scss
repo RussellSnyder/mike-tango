@@ -157,8 +157,16 @@ $menu-label-color: $white;
   }
 }
 
+.event-list-item {
+  .event {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
 @import "~bulma";
-
 // responsiveness
 + tablet-only .blog-list-item .featured-thumbnail {
   flex-basis: 50%;

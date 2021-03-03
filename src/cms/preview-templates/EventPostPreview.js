@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MusicPostTemplate } from '../../templates/music-post'
+import { EventPostTemplate } from '../../templates/event-post'
 
 const EventPostPreview = ({ entry, widgetFor }) => {
   return (
-    <MusicPostTemplate
+    <EventPostTemplate
       content={widgetFor('body')}
       description={entry.getIn(['data', 'description'])}
       title={entry.getIn(['data', 'title'])}

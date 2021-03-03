@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
@@ -11,7 +9,8 @@ export const EventPostTemplate = ({
   content,
   contentComponent,
   title,
-  description,
+  date,
+  venue,
   helmet,
 }) => {
 
@@ -26,6 +25,7 @@ export const EventPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <h3>{venue} - {date}</h3>
             <PostContent content={content} />
           </div>
         </div>
@@ -39,30 +39,35 @@ EventPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  date: PropTypes.string,
+  venue: PropTypes.string,
   helmet: PropTypes.object,
 }
 
 const EventPost = ({ data }) => {
   const { markdownRemark: post } = data
 
+  const { description, title, venue, date } = post.frontmatter;
+
   return (
     <Layout>
       <EventPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        image={post.frontmatter.image}
+        description={description}
+        venue={venue}
+        date={date}
         helmet={
           <Helmet titleTemplate="Event | %s">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
+            <title>{`${title}`}</title>
+            {/* TODO SEO */}
+            {/* <meta
               name="description"
-              content={`${post.frontmatter.description}`}
-            />
+              content={`${description}`}
+            /> */}
           </Helmet>
         }
-        title={post.frontmatter.title}
+        title={title}
       />
     </Layout>
   )
@@ -76,17 +81,16 @@ EventPost.propTypes = {
 
 export default EventPost
 
-// export const eventPageQuery = graphql`
-//   query EventPostByID($id: String!) {
-//     markdownRemark(id: { eq: $id }) {
-//       id
-//       html
-//       frontmatter {
-//         title
-//         date(formatString: "MMMM DD, YYYY")
-//         time
-//         location
-//       }
-//     }
-//   }
-// `
+export const eventPageQuery = graphql`
+  query EventPostByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        venue
+      }
+    }
+  }
+`
