@@ -26,7 +26,7 @@ collections:
       - {label: "Optoinal Youtube Link", name: "youtube", widget: "string"}
   - name: "event"
     label: "Events"
-    folder: "src/pages/event"
+    folder: "src/pages/events"
     create: true
     slug: "{{slug}}"
     fields:
