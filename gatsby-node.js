@@ -3,6 +3,25 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
+// If fields are optional, we have to tell gatsby that
+// they exist or else it can't infer them
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter implements Node {
+      facebook: String
+      instagram: String
+      youtube: String
+      recording: Recording
+    }
+    type Recording {
+      publicURL: String
+    }
+  `
+  createTypes(typeDefs)
+}
+
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -28,7 +47,10 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const edges = result.data.allMarkdownRemark.edges
+
+    // remove the site info
+    const posts = edges.filter(edge => edge.node.frontmatter.templateKey !== null);
 
     posts.forEach((edge) => {
       const id = edge.node.id

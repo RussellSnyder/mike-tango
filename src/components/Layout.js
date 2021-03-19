@@ -8,15 +8,8 @@ import { withPrefix } from 'gatsby'
 
 
 
-const TemplateWrapper = ({ children, seo }) => {
-  let { title, description, keywords, image } = useSiteMetadata();
-  if (seo) {
-    const { title: t, description: d, keywords: k, image: i } = seo
-    title = t || title;
-    description = d || description;
-    keywords = k || keywords;
-    image = i && !!i.childImageSharp ? i.childImageSharp.fluid.src : image;
-  }
+const TemplateWrapper = ({ children }) => {
+  const { title, description, keywords, image } = useSiteMetadata();
 
   return (
     <div>

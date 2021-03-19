@@ -49,9 +49,6 @@ collections:
           - {label: Subheading, name: subheading, widget: string}
           - {label: Image, name: image, widget: image}
           - {label: "Body", name: "body", widget: "markdown", hint: "Tell the world who you are as an artist"}
-          - {label: "SEO Description", name: seodescription, widget: string, required: false}
-          - {label: "SEO Keywords", name: seokeywords, widget: string, hint: "comma separated list for robots", required: false}
-          - {label: "SEO Image", name: seoimage, widget: image, required: false}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
@@ -59,3 +56,15 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/site-info.md"
+        label: "Site Information"
+        name: "siteinfo"
+        fields:
+          - {label: "Hidden Label", name: "id", widget: "hidden", default: "site-info"}
+          - {label: "SEO Title", name: seotitle, widget: string}
+          - {label: "SEO Description", name: seodescription, widget: string}
+          - {label: "SEO Keywords", name: seokeywords, widget: string, hint: "comma separated list for robots"}
+          - {label: "SEO Image", name: seoimage, widget: image}
+          - {label: "Facebook", name: facebook, widget: string, required: false}
+          - {label: "Instagram", name: instagram, widget: string, required: false}
+          - {label: "Youtube", name: youtube, widget: string, required: false}
