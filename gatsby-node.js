@@ -54,6 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     posts.forEach((edge) => {
       const id = edge.node.id
+      console.log(`creating page at ${edge.node.fields.slug}`);
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(

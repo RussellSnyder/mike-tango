@@ -6,8 +6,6 @@ import './all.scss'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-
-
 const TemplateWrapper = ({ children }) => {
   const { title, description, keywords, image } = useSiteMetadata();
 

@@ -5,7 +5,6 @@ import EventRoll from '../components/EventRoll'
 import Layout from '../components/Layout'
 import MusicRoll from '../components/MusicRoll'
 
-
 export const IndexPageTemplate = (post) => {
   const {
     image,
@@ -17,8 +16,7 @@ export const IndexPageTemplate = (post) => {
     <div
       className="full-width-image margin-top-0"
       style={{
-        backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
+        backgroundImage: `url(${image})`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
       }}
@@ -116,16 +114,10 @@ const IndexPage = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter } = markdownRemark
 
-  const seo = {
-    description: frontmatter.seodescription,
-    keywords: frontmatter.seokeywords,
-    image: frontmatter.seoimage,
-  }
-
   return (
-    <Layout seo={seo}>
+    <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
+        image={frontmatter.image?.childImageSharp.fluid.src}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         content={markdownRemark.html}
@@ -158,15 +150,6 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        seodescription
-        seokeywords
-        seoimage {
-          childImageSharp {
-            fluid(maxWidth: 500, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     }
   }

@@ -1,4 +1,6 @@
 ---
-top: "# Contact"
-thankyou: Thank you for your message, I'll get back to you soon!
+templateKey: contact-page
+path: /contact
 ---
+# Contact
+## I'm ready to Rock!
