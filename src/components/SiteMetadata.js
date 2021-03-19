@@ -33,12 +33,15 @@ const useSiteMetadata = () => {
     `
   )
   
-  const { seotitle, seodescription, seokeywords, seoimage } = markdownRemark.frontmatter;
+  const { seotitle, seodescription, seokeywords, seoimage, facebook, instagram, youtube } = markdownRemark.frontmatter;
   return {
     title: seotitle || site.title,
     description: seodescription || site.description,
     keywords: seokeywords || site.keywords,
     image: seoimage ? seoimage.childImageSharp.fluid.src : site.image,
+    facebook,
+    instagram,
+    youtube,
   }
 }
 

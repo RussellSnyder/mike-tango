@@ -1,11 +1,10 @@
-import React from 'react'
+import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-
+import React from 'react'
+import EventRoll from '../components/EventRoll'
 import Layout from '../components/Layout'
 import MusicRoll from '../components/MusicRoll'
-import EventRoll from '../components/EventRoll'
-import { Helmet } from 'react-helmet'
+
 
 export const IndexPageTemplate = (post) => {
   const {
