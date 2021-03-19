@@ -1,0 +1,6 @@
+---
+seotitle: Max Terxzakis - Musician & Enternainer
+seodescription: Musik von Schwaben
+seokeywords: Musik, Kindermusik, Strassmusik
+seoimage: /img/android-chrome-192x192.png
+---
