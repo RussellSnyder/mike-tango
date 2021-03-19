@@ -22,8 +22,8 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Recording", name: "recording", widget: "file"}
-      - {label: "Optoinal Youtube Link", name: "youtube", widget: "string"}
+      - {label: "Recording", name: "recording", widget: "file", required: false}
+      - {label: "Optional Youtube Link", name: "youtube", widget: "string", required: false}
   - name: "event"
     label: "Events"
     folder: "src/pages/events"
@@ -41,16 +41,17 @@ collections:
     label: "Pages"
     files:
       - file: "src/pages/index.md"
-        label: "Landing Page"
+        label: "Home Page"
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}
           - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
+          - {label: Image, name: image, widget: image}
+          - {label: "Body", name: "body", widget: "markdown", hint: "Tell the world who you are as an artist"}
+          - {label: "SEO Description", name: seodescription, widget: string, required: false}
+          - {label: "SEO Keywords", name: seokeywords, widget: string, hint: "comma separated list for robots", required: false}
+          - {label: "SEO Image", name: seoimage, widget: image, required: false}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"

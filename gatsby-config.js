@@ -2,6 +2,8 @@ const siteMetadata = {
   title: 'Max Terzakis Music',
   description:
     'Digital Home of German Artist Max Terzakis',
+  keywords: 'music, germany',
+  image: 'img/og-image.jpg'
 };
 
 module.exports = {
@@ -38,18 +40,18 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads',
-            },
-          },
-          {
             resolve: 'gatsby-remark-images',
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 2048,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads',
             },
           },
           {

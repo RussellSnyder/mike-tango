@@ -6,14 +6,25 @@ import './all.scss'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+
+
+const TemplateWrapper = ({ children, seo }) => {
+  let { title, description, keywords, image } = useSiteMetadata();
+  if (seo) {
+    const { title: t, description: d, keywords: k, image: i } = seo
+    title = t || title;
+    description = d || description;
+    keywords = k || keywords;
+    image = i && !!i.childImageSharp ? i.childImageSharp.fluid.src : image;
+  }
+
   return (
     <div>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
 
         <link
           rel="apple-touch-icon"
@@ -45,7 +56,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
+          content={`${withPrefix('/')}${image}`}
         />
       </Helmet>
       <Navbar />
